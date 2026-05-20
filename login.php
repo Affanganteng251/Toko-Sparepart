@@ -39,29 +39,21 @@ if (isset($_POST['login_btn'])) {
     <title>Halaman Login</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
 
     <style>
 
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *{ margin: 0; padding: 0; box-sizing: border-box; }
 
         body{
             background-color: #0a0a0a;
             font-family: 'Rajdhani', sans-serif;
             color: white;
             height: 100vh;
-
             display: flex;
             justify-content: center;
             align-items: center;
-
             background-image:
                 linear-gradient(rgba(0,0,0,0.72), rgba(10,0,0,0.80)),
                 url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1920&q=80&auto=format&fit=crop');
@@ -73,14 +65,11 @@ if (isset($_POST['login_btn'])) {
         .login-card{
             width: 100%;
             max-width: 500px;
-
             background: #111;
             border: 1px solid #333;
             border-top: 5px solid #ff003c;
-
             padding: 40px;
             border-radius: 15px;
-
             box-shadow: 0 10px 30px rgba(255, 0, 60, 0.2);
         }
 
@@ -93,9 +82,7 @@ if (isset($_POST['login_btn'])) {
             letter-spacing: 1px;
         }
 
-        h2 span{
-            color: #ff003c;
-        }
+        h2 span{ color: #ff003c; }
 
         .form-label{
             color: white;
@@ -105,7 +92,6 @@ if (isset($_POST['login_btn'])) {
             letter-spacing: 1px;
         }
 
-        /* ICON */
         .input-group-text{
             background-color: #0a0a0a;
             border: 1px solid #444;
@@ -113,32 +99,23 @@ if (isset($_POST['login_btn'])) {
             color: #ff003c;
         }
 
-        /* INPUT */
         .form-control{
             background-color: #0a0a0a;
             border: 1px solid #444;
             border-left: none;
-
             color: #ffffff !important;
-
             padding: 12px;
         }
 
-        .form-control::placeholder{
-            color: #bbbbbb;
-            opacity: 1;
-        }
+        .form-control::placeholder{ color: #bbbbbb; opacity: 1; }
 
         .form-control:focus{
             background-color: #111;
             border-color: #ff003c;
-
             color: #ffffff !important;
-
             box-shadow: 0 0 10px rgba(255, 0, 60, 0.3);
         }
 
-        /* Agar autofill tetap putih */
         input:-webkit-autofill,
         input:-webkit-autofill:hover,
         input:-webkit-autofill:focus{
@@ -147,50 +124,45 @@ if (isset($_POST['login_btn'])) {
             transition: background-color 5000s ease-in-out 0s;
         }
 
-        /* BUTTON */
         .btn-go{
             width: 100%;
             padding: 14px;
-
             border: none;
-
             background: linear-gradient(45deg, #ff003c, #990000);
-
             transform: skewX(-15deg);
-
             transition: 0.3s;
-
             margin-top: 10px;
         }
 
-        .btn-go:hover{
-            transform: skewX(-15deg) scale(1.02);
-        }
+        .btn-go:hover{ transform: skewX(-15deg) scale(1.02); }
 
         .btn-text{
             display: inline-block;
-
             transform: skewX(15deg);
-
             color: white;
-
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .form-check-label{
-            color: #dddddd;
-        }
+        .form-check-label{ color: #dddddd; }
 
-        .link-reg{
-            color: #aaaaaa;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .link-reg:hover{
+        /* Forgot password link — lebih menonjol */
+        .link-forgot{
             color: #ff003c;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .link-forgot:hover{
+            color: #ff4466;
+            text-decoration: underline;
         }
 
         .register-text{
@@ -205,9 +177,7 @@ if (isset($_POST['login_btn'])) {
             font-weight: bold;
         }
 
-        .register-text a:hover{
-            text-decoration: underline;
-        }
+        .register-text a:hover{ text-decoration: underline; }
 
         .alert{
             background-color: #3a0000;
@@ -222,109 +192,55 @@ if (isset($_POST['login_btn'])) {
 
     <div class="login-card">
 
-        <h2>
-            USER <span>LOGIN</span>
-        </h2>
+        <h2>USER <span>LOGIN</span></h2>
 
         <?php if($error): ?>
-
             <div class="alert alert-danger text-center py-2">
                 <?= $error; ?>
             </div>
-
         <?php endif; ?>
 
         <form action="" method="POST">
 
             <div class="mb-3">
-
-                <label class="form-label">
-                    Email
-                </label>
-
+                <label class="form-label">Email</label>
                 <div class="input-group">
-
-                    <span class="input-group-text">
-                        <i class="bi bi-envelope-fill"></i>
-                    </span>
-
-                    <input
-                        type="email"
-                        name="email"
-                        class="form-control"
-                        placeholder="Masukkan Email"
-                        required
-                    >
-
+                    <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                    <input type="email" name="email" class="form-control" placeholder="Masukkan Email" required>
                 </div>
-
             </div>
 
             <div class="mb-3">
-
-                <label class="form-label">
-                    Password
-                </label>
-
+                <label class="form-label">Password</label>
                 <div class="input-group">
-
-                    <span class="input-group-text">
-                        <i class="bi bi-lock-fill"></i>
-                    </span>
-
-                    <input
-                        type="password"
-                        name="password"
-                        class="form-control"
-                        placeholder="Masukkan Password"
-                        required
-                    >
-
+                    <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                    <input type="password" name="password" class="form-control" placeholder="Masukkan Password" required>
                 </div>
-
             </div>
 
             <div class="d-flex justify-content-between align-items-center mb-3">
 
                 <div class="form-check">
-
-                    <input
-                        type="checkbox"
-                        class="form-check-input"
-                        name="remember"
-                        id="remember"
-                    >
-
-                    <label class="form-check-label" for="remember">
-                        Remember Me
-                    </label>
-
+                    <input type="checkbox" class="form-check-input" name="remember" id="remember">
+                    <label class="form-check-label" for="remember">Remember Me</label>
                 </div>
 
-                <a href="#" class="link-reg">
-                    Forgot Password?
+                <!-- Forgot Password → menuju halaman forgot_password.php -->
+                <a href="forgot_password.php" class="link-forgot">
+                    <i class="bi bi-key-fill"></i> Forgot Password?
                 </a>
 
             </div>
 
             <button type="submit" name="login_btn" class="btn btn-go">
-
-                <span class="btn-text">
-                    LOGIN
-                </span>
-
+                <span class="btn-text">LOGIN</span>
             </button>
 
         </form>
 
         <div class="register-text">
-
             Belum punya akun?
-
-            <a href="register.php">
-                Register
-            </a>
-
+            <a href="register.php">Register</a>
         </div>
 
     </div>
